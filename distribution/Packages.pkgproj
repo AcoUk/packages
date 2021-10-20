@@ -1448,13 +1448,6 @@ Si vous souhaitez utiliser Packages sur OS X 10.7 ou antérieur, utilisez la ver
 				<key>PATH_TYPE</key>
 				<integer>1</integer>
 			</dict>
-			<key>CERTIFICATE</key>
-			<dict>
-				<key>NAME</key>
-				<string>Developer ID Installer: Stephane Sudre (NL5M9E394P)</string>
-				<key>PATH</key>
-				<string>/Users/stephane/Library/Keychains/login.keychain</string>
-			</dict>
 			<key>EXCLUDED_FILES</key>
 			<array>
 				<dict>
