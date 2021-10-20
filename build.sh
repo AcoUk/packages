@@ -31,7 +31,7 @@ fi
 
 pushd goldin
 
-/usr/bin/xcodebuild clean build -configuration Release -scheme "goldin" -derivedDataPath "$ABSOLUTE_BUILD_PATH" CONFIGURATION_BUILD_DIR="$ABSOLUTE_BUILD_PATH"
+/usr/bin/xcodebuild -configuration Release -scheme "goldin" -derivedDataPath "$ABSOLUTE_BUILD_PATH" CONFIGURATION_BUILD_DIR="$ABSOLUTE_BUILD_PATH"
 
 popd
 
@@ -39,7 +39,7 @@ popd
 
 pushd packagesutil
 
-/usr/bin/xcodebuild clean build -configuration Release -scheme "packagesutil" -derivedDataPath "$ABSOLUTE_BUILD_PATH" CONFIGURATION_BUILD_DIR="$ABSOLUTE_BUILD_PATH"
+/usr/bin/xcodebuild -configuration Release -scheme "packagesutil" -derivedDataPath "$ABSOLUTE_BUILD_PATH" CONFIGURATION_BUILD_DIR="$ABSOLUTE_BUILD_PATH"
 
 popd
 
@@ -47,7 +47,7 @@ popd
 
 pushd packagesbuild
 
-/usr/bin/xcodebuild clean build -configuration Release -scheme "packagesbuild" -derivedDataPath "$ABSOLUTE_BUILD_PATH" CONFIGURATION_BUILD_DIR="$ABSOLUTE_BUILD_PATH"
+/usr/bin/xcodebuild -configuration Release -scheme "packagesbuild" -derivedDataPath "$ABSOLUTE_BUILD_PATH" CONFIGURATION_BUILD_DIR="$ABSOLUTE_BUILD_PATH"
 
 popd
 
@@ -55,7 +55,7 @@ popd
 
 pushd packages_dispatcher
 
-/usr/bin/xcodebuild clean build -configuration Release -scheme "packages_dispatcher" -derivedDataPath "$ABSOLUTE_BUILD_PATH" CONFIGURATION_BUILD_DIR="$ABSOLUTE_BUILD_PATH"
+/usr/bin/xcodebuild -configuration Release -scheme "packages_dispatcher" -derivedDataPath "$ABSOLUTE_BUILD_PATH" CONFIGURATION_BUILD_DIR="$ABSOLUTE_BUILD_PATH"
 
 popd
 
@@ -65,7 +65,7 @@ pushd packages_builder
 
 /usr/bin/xcrun agvtool next-version -all
 
-/usr/bin/xcodebuild clean build -configuration Release -scheme "packages_builder" -derivedDataPath "$ABSOLUTE_BUILD_PATH" CONFIGURATION_BUILD_DIR="$ABSOLUTE_BUILD_PATH"
+/usr/bin/xcodebuild -configuration Release -scheme "packages_builder" -derivedDataPath "$ABSOLUTE_BUILD_PATH" CONFIGURATION_BUILD_DIR="$ABSOLUTE_BUILD_PATH"
 
 pushd
 
@@ -81,7 +81,7 @@ do
 
 	pushd $requirement_plugin
 
-	/usr/bin/xcodebuild clean build -configuration Release -scheme "$requirement_plugin" -derivedDataPath "$ABSOLUTE_BUILD_PATH/requirements" CONFIGURATION_BUILD_DIR="$ABSOLUTE_BUILD_PATH/requirements"
+	/usr/bin/xcodebuild -configuration Release -scheme "$requirement_plugin" -derivedDataPath "$ABSOLUTE_BUILD_PATH/requirements" CONFIGURATION_BUILD_DIR="$ABSOLUTE_BUILD_PATH/requirements"
 
 	popd
 
@@ -98,7 +98,7 @@ do
 
 	pushd $locator_plugin
 
-	/usr/bin/xcodebuild clean build -configuration Release -scheme "$locator_plugin" -derivedDataPath "$ABSOLUTE_BUILD_PATH/locators" CONFIGURATION_BUILD_DIR="$ABSOLUTE_BUILD_PATH/locators"
+	/usr/bin/xcodebuild -configuration Release -scheme "$locator_plugin" -derivedDataPath "$ABSOLUTE_BUILD_PATH/locators" CONFIGURATION_BUILD_DIR="$ABSOLUTE_BUILD_PATH/locators"
 
 	popd
 
@@ -115,7 +115,7 @@ pushd app_packages
 
 /usr/bin/xcrun agvtool new-marketing-version $VERSION
 
-/usr/bin/xcodebuild -project "app_packages.xcodeproj" clean build -configuration Release -scheme "app_packages" -derivedDataPath "$ABSOLUTE_BUILD_PATH" CONFIGURATION_BUILD_DIR="$ABSOLUTE_BUILD_PATH"
+/usr/bin/xcodebuild -project "app_packages.xcodeproj" -configuration Release -scheme "app_packages" -derivedDataPath "$ABSOLUTE_BUILD_PATH" CONFIGURATION_BUILD_DIR="$ABSOLUTE_BUILD_PATH"
 
 popd
 
@@ -215,7 +215,7 @@ then
 	/bin/rm artifacts/"$DISKIMAGE_NAME".dmg
 fi
 
-/usr/bin/hdiutil convert build/"$DISKIMAGE_NAME"_rw.dmg -format UDZO -o artifacts/"$DISKIMAGE_NAME".dmg > /dev/null
+/usr/bin/hdiutil convert build/"$DISKIMAGE_NAME"_rw.dmg -format UDZO -o artifacts/"$DISKIMAGE_NAME $VERSION".dmg > /dev/null
 
 ## Remove the temporary disk image
 
